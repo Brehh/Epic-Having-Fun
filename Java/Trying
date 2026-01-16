@@ -1,0 +1,76 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.Random;
+import java.util.ArrayList;
+
+class Encoder{
+    
+    
+    private Random myrandom = new Random();
+
+    ArrayList<Character> getEncoder_1(){
+        ArrayList<Character> encoder_1 = new ArrayList<Character>();
+        for (int i = (int)' '; i <= (int)'~'; i++){
+            encoder_1.add((char) i);
+        }
+        return shuffleList(encoder_1);
+    }
+    
+    ArrayList<Character> getEncoder_2(){
+        var encoder1 = new ArrayList<Character>(getEncoder_1);
+        var copy_encoder1 = new ArrayList<Character>(encoder1);
+        ArrayList<Character> encoder_2 = new ArrayList<Character>();
+        for (var i: copy_encoder1){
+            var copy_encoder1c = new ArrayList<Character>(copy_encoder1);
+            copy_encoder1c.remove(i);
+            encoder_2.add(randomChoice(copy_encoder1c));    
+        }
+        return encoder_2;
+    }
+    
+    private ArrayList<Character> shuffleList(ArrayList<Character> copy_encoder_1){
+        ArrayList<Integer> tempAllNum = new ArrayList<Integer>();
+        var new_encoder_1 = new ArrayList<Character>();
+        for (int i = 0; i < copy_encoder_1.size(); i++){
+            tempAllNum.add(i);
+        }
+        while (tempAllNum.size() > 0){
+            int randomTempIndex = myrandom.nextInt(0,tempAllNum.size());
+            int randomIndex = tempAllNum.get(randomTempIndex);
+            new_encoder_1.add(copy_encoder_1.get(randomIndex));
+            tempAllNum.remove(randomTempIndex);
+        }
+        return new_encoder_1;
+    }
+    
+    private char randomChoice(ArrayList<Character> mylist){
+        int randomIndex = myrandom.nextInt(0,mylist.size());
+        char randomChar = mylist.get(randomIndex);
+        return randomChar;
+    }
+    
+    
+}
+
+
+
+class Main {
+    public static void main(String[] args) {
+        Encoder epic = new Encoder();
+        var shuf = epic.getEncoder_1();
+        System.out.println(shuf.toString());
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

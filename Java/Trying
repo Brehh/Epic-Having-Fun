@@ -2,11 +2,12 @@
 // Use this editor to write, compile and run your Java code online
 import java.util.Random;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 class Encoder{
     private Random myrandom = new Random();
-
-    ArrayList<Character> getEncoder_1(){
+    
+    private ArrayList<Character> getEncoder_1(){
         ArrayList<Character> encoder_1 = new ArrayList<Character>();
         for (int i = (int)' '; i <= (int)'~'; i++){
             encoder_1.add((char) i);
@@ -14,7 +15,7 @@ class Encoder{
         return shuffleList(encoder_1);
     }
     
-    ArrayList<Character> getEncoder_2(){
+    private ArrayList<Character> getEncoder_2(){
         var encoder1 = new ArrayList<Character>(getEncoder_1());
         var copy_encoder1 = new ArrayList<Character>(encoder1);
         ArrayList<Character> encoder_2 = new ArrayList<Character>();
@@ -24,6 +25,16 @@ class Encoder{
             encoder_2.add(randomChoice(copy_encoder1c));    
         }
         return encoder_2;
+    }
+    
+    int tryEncode(String wow){
+        String saved = "";
+        var encoder1 = new ArrayList<Character>(getEncoder_1());
+        var encoder2 = new ArrayList<Character>(getEncoder_2());
+        for (int i =0;i< wow.length;i++){
+            char curChar = wow.charAt(i);
+        }
+        return saved
     }
     
     private ArrayList<Character> shuffleList(ArrayList<Character> copy_encoder_1){
@@ -55,9 +66,8 @@ class Encoder{
 class Main {
     public static void main(String[] args) {
         Encoder epic = new Encoder();
-        var shuf_1 = epic.getEncoder_1();
-        var shuf = epic.getEncoder_2();
-        System.out.println(shuf.toString()+"\n"+shuf_1.toString());
+        int cool = epic.tryEncode("abcdefg");
+        System.out.println(cool);
     }
 }
 

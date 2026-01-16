@@ -27,14 +27,15 @@ class Encoder{
         return encoder_2;
     }
     
-    int tryEncode(String wow){
+    String tryEncode(String wow){
         String saved = "";
         var encoder1 = new ArrayList<Character>(getEncoder_1());
         var encoder2 = new ArrayList<Character>(getEncoder_2());
-        for (int i =0;i< wow.length;i++){
-            char curChar = wow.charAt(i);
+        for (int i =0;i< wow.length();i++){
+            int curIndex = encoder1.indexOf(i);
+            saved += encoder2.charAt(curIndex);
         }
-        return saved
+        return saved;
     }
     
     private ArrayList<Character> shuffleList(ArrayList<Character> copy_encoder_1){
@@ -66,7 +67,7 @@ class Encoder{
 class Main {
     public static void main(String[] args) {
         Encoder epic = new Encoder();
-        int cool = epic.tryEncode("abcdefg");
+        String cool = epic.tryEncode("abcdefg");
         System.out.println(cool);
     }
 }

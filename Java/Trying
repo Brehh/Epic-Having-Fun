@@ -32,8 +32,8 @@ class Encoder{
         var encoder1 = new ArrayList<Character>(getEncoder_1());
         var encoder2 = new ArrayList<Character>(getEncoder_2());
         for (int i =0;i< wow.length();i++){
-            int curIndex = encoder1.indexOf(i);
-            saved += encoder2.charAt(curIndex);
+            int curIndex = encoder1.indexOf(wow.charAt(i));
+            saved += encoder2.get(curIndex);
         }
         return saved;
     }
